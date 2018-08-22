@@ -1,9 +1,11 @@
 pipeline {
-  agent any
+  agent {
+    docker { image 'alainchiasson/docker-molecule' }
+  }
   stages {
     stage('Install test tools') {
       steps {
-        sh 'pip install molecule'
+        sh 'command -v molecule || pip install molecule'
       }
     }
     stage('Validate molecule') {
