@@ -1,15 +1,14 @@
 pipeline {
   agent any
-
   stages {
-    stage('Install test tools'){
+    stage('Install test tools') {
       steps {
         sh 'pip install molecule'
       }
     }
     stage('Test Redis') {
       steps {
-        sh '''molecule test
+        sh '''molecule test -s default
 '''
       }
     }
