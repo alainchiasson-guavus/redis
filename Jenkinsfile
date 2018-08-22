@@ -8,8 +8,7 @@ pipeline {
     }
     stage('Test Redis') {
       steps {
-        sh '''molecule test -s default
-'''
+        sh 'molecule --version'
       }
     }
   }
